@@ -17,7 +17,9 @@ repos:
     -   id: flake8
         exclude: '^(tests/automated)/'
         args:
-        - --select=F
+        - --ignore=E111,E114,E121,E501,E302,E305,W504
+        - --exclude=python/esptool.py,tests/gmbitbang/*
+        - --statistics
 -   repo: local
     hooks:
     -   id: pylint
@@ -27,4 +29,5 @@ repos:
         types: [python]
         exclude: '^(tests/automated)/'
         args:
-        - --disable=R,C,W
+        - --disable=C,R,W0613,W0511,W0212,W0201,W0311,W0106,W0603,W0621,W0703,E1136
+        - --generated-members="usb1.*"
